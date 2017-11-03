@@ -2,21 +2,17 @@
 // O(n^2) - My solution
 function find_pair(nums, target) {
 	for(let i = 0; i < nums.length; i++) {
-		// Creating an array from i to end with complements
-		let curr_num = nums.slice(i).map(function(value) {
-			return target - value;
-		});
-
-		// If complement is in remaining array, return
-		if(curr_num.indexOf(nums[i], i) >= 0) {
-			console.log([i, i + curr_num.indexOf(nums[i])]);
-		}
+		temp_nums = nums.slice(i).map(function(value) {
+            return target - value;
+        });
+        
+        //console.log(temp_nums.slice(1));
+        if(temp_nums.slice(1).indexOf(nums[i]) >= 0) {
+            return [i, i + temp_nums.slice(1).indexOf(nums[i]) + 1];
+        }
 	}
 }
-// There's a bunch of stuff wrong with my solution
-// Leetcode suggests to not make functions within a loop
-// Also, I'm only passing this one test case that I've written below
-// There's some problem with this
+// This solution works and is better than 0.15% JS submissions = SUCKS
 
 // O(n) solution - Hash table single pass
 // Space O(n)
