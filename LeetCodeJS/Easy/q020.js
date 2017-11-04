@@ -45,5 +45,29 @@ function isValid(s) {
 }
 // This solution works and is better than 95.28% JS submissions
 
+// I was planning on doing this. The dict makes it cleaner
+// But the solution was taken from discussions online
+function isValid_clean(s) {
 
-module.exports = isValid;
+	if(s.length === 0) {
+		return true;
+	}
+
+	const brackets = {'(':')', '{':'}', '[':']'};
+	let paren_stack = [];
+
+	for(let i = 0; i < s.length; i++) {
+		if(s[i] in brackets) {
+			paren_stack.push(s[i]);
+		}
+		else if(brackets[paren_stack.pop()] !== s[i]) {
+			return false;
+		}
+	}
+
+	return paren_stack.length == 0;
+}
+// This solution works and is better than 99.86% JS submissions
+
+
+module.exports = isValid_clean;
