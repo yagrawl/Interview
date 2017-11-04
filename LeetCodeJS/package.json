@@ -1,0 +1,19 @@
+{
+  "name": "leetcodejs",
+  "version": "1.0.0",
+  "description": "Leetcode problems in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "Leetcode",
+    "JS",
+    "Coding"
+  ],
+  "author": "Yash Agrawal",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
