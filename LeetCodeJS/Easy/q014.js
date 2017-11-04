@@ -36,4 +36,26 @@ function longestCommonPrefix(strs) {
 // This solution works and is better than 17.41% JS submissions
 // Took less than 25 mins with TDD.
 
-module.exports = longestCommonPrefix;
+// Slightly more clean. From Leetcode's solution of vertical scanning
+// Basically keep on checking the number of chars that match wrt to 
+// the first string
+function longestCommonPrefix_efficient(strs) {
+	
+	if(strs.length === 0) {
+		return '';
+	}
+
+	for(let i = 0; i < strs[0].length; i++) {
+		let temp_char = strs[0][i];
+		for(let j = 1; j < strs.length; j++) {
+			if(i == strs[j].length || strs[j][i] != temp_char) {
+				return strs[0].slice(0, i);
+			}
+		}
+	}
+
+	return strs[0];
+}
+// This solution works and is better than 99.61% JS submissions
+
+module.exports = longestCommonPrefix_efficient;
