@@ -64,4 +64,4 @@ function searchInsert_efficient(nums, target) {
 // This solution works and is better than 41.98% JS submissions
 
 
-module.exports = searchInsert_efficient;
+module.exports = searchInsert;
