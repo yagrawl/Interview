@@ -25,4 +25,27 @@ function removeDuplicates(nums) {
 }
 // This solution works and is better than 38.98% JS submissions
 
-module.exports = removeDuplicates;
+// This is a solution from the discussions which is efficient
+// levreges 'It doesn't matter what you leave beyond the new length'
+// by changing in place instead of removing or deleting
+function removeDuplicates_efficient(nums) {
+
+	let tail = 0;
+
+	if(nums.length === 0) {
+		return 0;
+	}
+
+	for(let i = 1; i < nums.length; i++) {
+		if(nums[i] !== nums[tail]) {
+			tail += 1;
+			nums[tail] = nums[i];
+		}
+	}
+
+	return tail + 1;
+}
+// This solution works and is better than 99.64% JS submissions
+
+
+module.exports = removeDuplicates_efficient;
