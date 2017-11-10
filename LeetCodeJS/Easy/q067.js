@@ -12,85 +12,111 @@ function addBinary(a, b) {
 
 function addBinary_loop(a, b) {
 
-	let carry = 0;
+	let i = 0;
 	let ans = '';
-	let len;
-	let rem_len;
+	let carry = 0;
 
-	if(a.length <= b.length) {
-		len = a.length;
-		rem_len = b.slice(0, b.length - len);
-	}
-	else {
-		len = b.length;
-		rem_len = a.slice(0, a.length - len);
-	}
+	a = a.split("").reverse().join("");
+	b = b.split("").reverse().join("");
 
-	for(let i = 0; i < len; i++) {
-		if(a[a.length - 1 - i] === '0' && b[b.length - 1 - i] === '0') {
-			if(carry === 0) {
+	while(a.length !== 0 && b.length !== 0) {
+		if(a[0] === '0' && b[0] === '0') {
+			if(carry) 
+				ans = '1' + ans;
+			else 
 				ans = '0' + ans;
-			}
-			else {
-				ans = '1' + ans;
-			}
 		}
-		else if(a[a.length - 1 - i] === '0' && b[b.length - 1 - i] === '1') {
-			if(carry === 0) {
-				ans = '1' + ans;
-			}
-			else {
+		else if(a[0] === '0' && b[0] === '1') {
+			if(carry) {
 				ans = '0' + ans;
 				carry = 1;
 			}
-		}
-		else if(a[a.length - 1 - i] === '1' && b[b.length - 1 - i] === '0') {
-			if(carry === 0) {
+			else
 				ans = '1' + ans;
-			}
-			else {
+		}
+		else if(a[0] === '1' && b[0] === '0') {
+			if(carry) {
 				ans = '0' + ans;
 				carry = 1;
 			}
+			else
+				ans = '1' + ans;
 		}
 		else {
-			if(carry === 0) {
-				ans = '0' + ans;
+			if(carry) {
+				ans = '1' + ans;
 				carry = 1;
 			}
 			else {
-				ans = '1' + ans;
+				ans = '0' + ans;
 				carry = 1;
 			}
 		}
 
+		a = a.slice(1);
+		b = b.slice(1);
+		i += 1;
+
 	}
 
-	if(rem_len.length !== 0) {
+	if(a.length !== 0) {
 		if(carry) {
-			for(let i = 0; i < rem_len.length; i++) {
-				if(rem_len[rem_len.length - i - 1] === '0') {
-					rem_len[rem_len.length - i - 1] = '1';
+			while(a.length) {
+				if(a[0] === '0'){
+					ans = '1' + a.slice(1) + ans;
+					carry = 0
 					break;
 				}
 				else {
-					rem_len[rem_len.length - i - 1] === '0';
+					ans = '0' + ans;
+					carry = 1;
 				}
+
+				a = a.slice(1);
 			}
-			ans = rem_len + ans;
+
+			if(carry) {
+				ans = '1' + ans;
+			}
 		}
 		else {
-			ans = rem_len + ans;
+			ans = a + ans;
 		}
 	}
 
-	console.log(ans);
+	if(b.length !== 0) {
+		if(carry) {
+			while(b.length) {
+				if(b[0] === '0'){
+					ans = '1' + b.slice(1) + ans;
+					carry = 0
+					break;
+				}
+				else {
+					ans = '0' + ans;
+					carry = 1;
+				}
 
+				b = b.slice(1);
+			}
+
+			if(carry) {
+				ans = '1' + ans;
+			}
+		}
+		else {
+			ans = b + ans;
+		}
+	}
+
+	if(a.length !== 0 && b.length !== 0 && carry) {
+		ans = '1' + ans;
+	}
 
 	return ans;
 }
 
-addBinary_loop('1', '11');
+addBinary_loop('11100', '1011');
 
 
 module.exports = addBinary_loop;
