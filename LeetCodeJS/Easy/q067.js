@@ -6,12 +6,12 @@ function addBinary(a, b) {
 
 	let ans = a_bin + b_bin;
 
+	console.log(ans.toString(2));
 	return ans.toString(2);
 
 }
 
-function addBinary_loop(a, b) {
-
+function addBinary_second(a, b){
 	let i = 0;
 	let ans = '';
 	let carry = 0;
@@ -116,7 +116,30 @@ function addBinary_loop(a, b) {
 	return ans;
 }
 
-addBinary_loop('11100', '1011');
+function addBinary_loop(a, b) {
+
+	var lenA = a.length;
+    var lenB = b.length;
+    var ai = 0;
+    var bi = 0;
+    var sum = '';
+    var carry = 0;
+    while(ai < lenA || bi < lenB) {
+        var valA = ai < lenA ? parseInt(parseInt(a[lenA - 1 - ai])) : 0;
+        var valB = bi < lenB ? parseInt(parseInt(b[lenB - 1 - bi])) : 0;
+        var val = valA + valB + carry;
+        var rem = val%2;
+        carry = val > 1 ? 1 : 0; 
+        sum = rem + sum;
+        ai++;
+        bi++;
+    }
+    
+    return carry > 0 ? carry + sum : sum;
+}
+// 99.56% - Not mine. Mine didn't work for all cases.
+
+addBinary_loop('10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101', '110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011');
 
 
 module.exports = addBinary_loop;
