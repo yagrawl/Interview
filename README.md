@@ -8,8 +8,12 @@ This repository contains some questions I worked on during my technical intervie
 
 Divided in folders according to level of difficulty. For eg, Easy folder obviously contains the questions marked 'easy' on leetcode.
 
-I've used a test driven approach so each problem also contains associated tests.
+Written in Javascript. I've used a test driven approach so each problem also contains associated tests.
 
 To run tests, go to the LeetCodeJS directory `cd LeetCodeJS`. Then use `npm install` to install all the dependencies. I used [jest](https://facebook.github.io/jest/) to write unit tests. Once in the LeetCodeJS folder, use `npm test` to run all tests.
 
 More questions to come.
+
+### CTCI
+
+Questions from Cracking the Coding Interview, divided by chapters, written in Python.
