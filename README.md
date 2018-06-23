@@ -14,6 +14,9 @@ To run tests, go to the LeetCodeJS directory `cd LeetCodeJS`. Then use `npm inst
 
 More questions to come.
 
-### CTCI
+### LeetCode v.2.0
 
+This is my second attempt at practicing LeetCode problems. 2018. I'm trying to use as many ES6+ things that I possibly can and this time I'm going in sequence - solving questions irrespective of their toughness. 
+
+### CTCI
 Questions from Cracking the Coding Interview, divided by chapters, written in Python.
