@@ -1,0 +1,16 @@
+{
+  "name": "leetcodejs.v2.0",
+  "version": "1.0.0",
+  "description": "LeetcodeJS solutions in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Leetcode",
+    "JS",
+    "interview"
+  ],
+  "author": "Yash Agrawal",
+  "license": "ISC"
+}
